@@ -12,7 +12,7 @@ const isValidURL = input => {
 };
 
 // node axe-puppeteer.js <url>
-const url = process.argv[2];
+const url = 'localhost:3000'
 assert(isValidURL(url), 'Invalid URL');
 
 const main = async url => {
