@@ -1,17 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+import App from "./App";
+import "@shopify/polaris/dist/styles.css";
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Heading, Navigation, Frame, AppProvider } from "@shopify/polaris";
+import { HomeMajor, BehaviorMajor } from "@shopify/polaris-icons";
+const navigationMarkup = (
+  <Navigation location="/">
+    <Navigation.Section
+      items={[
+        {
+          url: "/",
+          label: "Home",
+          icon: HomeMajor,
+        },
+        {
+          url: "/about",
+          label: "About this project",
+          icon: BehaviorMajor,
+        },
+      ]}
+    />
+  </Navigation>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(
+  <BrowserRouter>
+    <AppProvider ii18n={{}}>
+      <Frame navigation={navigationMarkup}>
+        <App />
+      </Frame>
+    </AppProvider>
+  </BrowserRouter>,
+  document.getElementById("root")
+);
