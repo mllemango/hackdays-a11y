@@ -18,6 +18,9 @@ You will also see any lint errors in the console.
 
 Runs axe-core's testing!
 
+### `node test-admin/tophat.js`
+Run axe-core on admin! 
+(local shopify needs to be up)
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\

@@ -77,6 +77,6 @@ main(URL_ABOUT, "about")
 
 async function screenshot(page, name) {
   await page.screenshot({
-    path: `test/${name}.png`,
+    path: `${name}.png`,
   });
 }

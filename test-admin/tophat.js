@@ -25,23 +25,21 @@ const headless = (process.env.HEADLESS || '1') === '1';
   const page = await browserContext.newPage();
   setupSpinner.succeed();
 
-  
-
-  await test('No accessibility issues on landing page', async () => {
-    await page.goto('https://shop1.myshopify.io/admin/');
-    await screenshot(page, 'landing-page');
-    // Inject and run axe-core
-    const handle = await page.evaluateHandle(`
-      // Inject axe source code
-      ${axeCore.source}
-      // Run axe
-      axe.run()
-    `);
-    results = await handle.jsonValue();
-    expect(results.violations.length).toBe(0);
-    // Destroy the handle & return axe results.
-    await handle.dispose();
-  });
+  // await test('No accessibility issues on landing page', async () => {
+  //   await page.goto('https://shop1.myshopify.io/admin/');
+  //   await screenshot(page, 'landing-page');
+  //   // Inject and run axe-core
+  //   const handle = await page.evaluateHandle(`
+  //     // Inject axe source code
+  //     ${axeCore.source}
+  //     // Run axe
+  //     axe.run()
+  //   `);
+  //   results = await handle.jsonValue();
+  //   expect(results.violations.length).toBe(0);
+  //   // Destroy the handle & return axe results.
+  //   await handle.dispose();
+  // });
 
   await test('No accessibility violations on products page', async()=> {
     await page.goto('https://shop1.myshopify.io/admin/products');
@@ -61,16 +59,16 @@ const headless = (process.env.HEADLESS || '1') === '1';
   });
 
 
-    await page.close();
-    await browserContext.close();
-    await browser.close();
-    await compareScreenshots();
-    process.exit(0);
+  await page.close();
+  await browserContext.close();
+  await browser.close();
+  await compareScreenshots();
+  process.exit(0);
 
 })();
 
 async function screenshot(page, name) {
   await page.screenshot({
-    path: `test/${name}.png`,
+    path: `test-admin/${name}.png`,
   });
 }
