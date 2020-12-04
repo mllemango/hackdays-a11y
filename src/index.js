@@ -13,11 +13,13 @@ const navigationMarkup = (
           url: "/",
           label: "Home",
           icon: HomeMajor,
+          accessibilityLabel: "Home page"
         },
         {
           url: "/about",
           label: "About this project",
           icon: BehaviorMajor,
+          accessibilityLabel: "About page"
         },
       ]}
     />
@@ -26,7 +28,7 @@ const navigationMarkup = (
 ReactDOM.render(
   <BrowserRouter>
     <AppProvider ii18n={{}}>
-      <Frame navigation={navigationMarkup}>
+      <Frame navigation={navigationMarkup} accessibilityLabel='test'>
         <App />
       </Frame>
     </AppProvider>

@@ -9,7 +9,7 @@ function Home() {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <Heading element="h1">A11y Dev Experience Home</Heading>
-          <Link url="https://hackdays.shopify.io/projects/13644">
+          <Link url="https://hackdays.shopify.io/projects/13644" >
             Hackdays Project
           </Link>
         </header>
