@@ -4,10 +4,10 @@ function About() {
   return (
     <AppProvider i18n={{}}>
       <MediaCard
-        title="Getting Started"
+        title="Testing for Accessibility "
         primaryAction={{
-          content: "Learn about getting started",
-          onAction: () => {},
+          content: "Learn more about A11y Development",
+          onAction: () => {window.open('https://www.a11yproject.com/', "_blank")},
         }}
         description="Discover how Shopify can power up your entrepreneurial journey."
         popoverActions={[{ content: "Dismiss", onAction: () => {} }]}
